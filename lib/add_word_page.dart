@@ -1,8 +1,6 @@
-// add_word_page.dart dosyasının içeriği
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ingilizce_calisma_kartlari/models.dart';
-// Arka plan widget'ını kullanmak için main.dart dosyasını import ediyoruz
 import 'package:ingilizce_calisma_kartlari/main.dart';
 
 class AddWordPage extends StatefulWidget {

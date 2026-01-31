@@ -15,7 +15,6 @@ class _WordCardsPageState extends State<WordCardsPage> {
   late Box<WordCard> _wordBox;
   WordCard? _currentCard;
   
-  // KART DÖNÜŞ AÇISI: Başlangıçta 0.
   double _angle = 0;
 
   @override
@@ -50,7 +49,6 @@ class _WordCardsPageState extends State<WordCardsPage> {
 
     setState(() {
       _currentCard = nextWord;
-      // YENİ KELİME GELDİĞİNDE: Açıyı sıfırla ki kart ön yüzüyle başlasın.
       _angle = 0; 
     });
   }
@@ -89,20 +87,16 @@ class _WordCardsPageState extends State<WordCardsPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Dismissible(
-                            // ÖNEMLİ: UniqueKey yerine kartın kendi bilgisini veriyoruz.
-                            // Böylece tıklandığında Flutter widget'ı silip baştan yaratmıyor.
                             key: ValueKey(_currentCard!.englishWord),
                             direction: DismissDirection.horizontal,
                             onDismissed: (direction) {
                               _loadNextWord();
                             },
                             child: TweenAnimationBuilder<double>(
-                              // Sadece end değerini veriyoruz, begin otomatik yönetiliyor.
                               tween: Tween<double>(end: _angle),
                               duration: const Duration(milliseconds: 600),
                               curve: Curves.easeInOutBack,
                               builder: (context, double value, child) {
-                                // Arka yüz mü ön yüz mü hesaplaması
                                 final double normalizedAngle = value % 360;
                                 final bool isBack = normalizedAngle >= 90 && normalizedAngle <= 270;
 
@@ -114,7 +108,6 @@ class _WordCardsPageState extends State<WordCardsPage> {
                                   child: GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        // Her tıklandığında 180 derece ileri döner.
                                         _angle += 180;
                                       });
                                     },
@@ -161,7 +154,6 @@ class _WordCardsPageState extends State<WordCardsPage> {
   Widget _buildCardSide(BuildContext context, String text, bool isBack) {
     return Transform(
       alignment: Alignment.center,
-      // İçerideki metnin ters görünmemesi için arka yüzde içeriği de 180 derece çeviriyoruz.
       transform: isBack ? Matrix4.rotationY(pi) : Matrix4.identity(),
       child: Card(
         elevation: 12,

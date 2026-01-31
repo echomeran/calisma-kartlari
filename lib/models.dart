@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'models.g.dart'; // Bu satır, otomatik oluşturulacak kod dosyası içindir.
+part 'models.g.dart'; 
 
 @HiveType(typeId: 0)
 class WordCard extends HiveObject {

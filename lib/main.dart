@@ -1,4 +1,3 @@
-// main.dart dosyasının tamamı
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:ingilizce_calisma_kartlari/models.dart';
@@ -93,12 +92,12 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const AppBackground(), // Yeni gradyanlı arka planın burada olduğunu varsayıyorum
+          const AppBackground(), 
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Butonları yukarı, merkeze taşır
+              mainAxisAlignment: MainAxisAlignment.center, 
               children: <Widget>[
-                // Logo alanı - Logonu burada daha zarif bir şekilde gösterebiliriz
+               
                 Padding(
                   padding: const EdgeInsets.only(bottom: 40.0),
                   child: Hero(
@@ -130,7 +129,7 @@ class MyHomePage extends StatelessWidget {
                   Icons.format_list_bulleted, 
                   const WordListPage()
                 ),
-                const SizedBox(height: 50), // En alt boşluğu azalttık
+                const SizedBox(height: 50), 
               ],
             ),
           ),
@@ -139,10 +138,9 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  // Butonları daha düzenli oluşturmak için yardımcı bir fonksiyon
   Widget _buildMenuButton(BuildContext context, String title, IconData icon, Widget page) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.7, // Buton genişliği ekranın %70'i
+      width: MediaQuery.of(context).size.width * 0.7, 
       child: ElevatedButton.icon(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => page));

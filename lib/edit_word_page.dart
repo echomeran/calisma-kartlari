@@ -1,4 +1,3 @@
-// edit_word_page.dart dosyasının içeriği
 import 'package:flutter/material.dart';
 import 'package:ingilizce_calisma_kartlari/models.dart';
 import 'package:ingilizce_calisma_kartlari/main.dart'; // Arka plan widget'ı için import ediyoruz
@@ -19,25 +18,21 @@ class _EditWordPageState extends State<EditWordPage> {
   @override
   void initState() {
     super.initState();
-    // Mevcut kelimeleri controller'lara yüklüyoruz
     _englishController = TextEditingController(text: widget.wordToEdit.englishWord);
     _turkishController = TextEditingController(text: widget.wordToEdit.turkishWord);
   }
 
   void _updateWord() {
     if (_englishController.text.isEmpty || _turkishController.text.isEmpty) {
-      // Kelime alanları boşsa uyarı ver
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Lütfen kelime alanlarını boş bırakmayın.')),
       );
       return;
     }
 
-    // Kelimenin özelliklerini güncelle
     widget.wordToEdit.englishWord = _englishController.text;
     widget.wordToEdit.turkishWord = _turkishController.text;
 
-    // Hive'daki veriyi güncellemek için save() metodunu kullan
     widget.wordToEdit.save();
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -47,7 +42,6 @@ class _EditWordPageState extends State<EditWordPage> {
       ),
     );
 
-    // Bir önceki sayfaya geri dön
     Navigator.of(context).pop();
   }
 

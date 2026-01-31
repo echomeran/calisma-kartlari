@@ -1,4 +1,3 @@
-// word_list_page.dart dosyasının içeriği
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ingilizce_calisma_kartlari/models.dart';
@@ -16,9 +15,7 @@ class _WordListPageState extends State<WordListPage> {
   final _searchController = TextEditingController();
   String _searchText = "";
   
-  // Kelime silme işlemini yapacak fonksiyonu değiştiriyoruz
   void _deleteWord(WordCard word) {
-    // Onay diyalog penceresini gösteriyoruz
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -29,16 +26,16 @@ class _WordListPageState extends State<WordListPage> {
             TextButton(
               child: const Text('Hayır', style: TextStyle(color: Colors.white)),
               onPressed: () {
-                Navigator.of(context).pop(); // Diyalogu kapat
+                Navigator.of(context).pop(); 
               },
             ),
             TextButton(
               child: const Text('Evet', style: TextStyle(color: Colors.red)),
               onPressed: () {
                 setState(() {
-                  word.delete(); // Kullanıcı evet derse kelimeyi sil
+                  word.delete(); 
                 });
-                Navigator.of(context).pop(); // Diyalogu kapat
+                Navigator.of(context).pop(); 
               },
             ),
           ],
@@ -47,11 +44,10 @@ class _WordListPageState extends State<WordListPage> {
     );
   }
 
-  // Kelimenin biliniyor/bilinmiyor durumunu değiştiren fonksiyon
   void _toggleKnownStatus(WordCard word) {
     setState(() {
       word.isKnown = !word.isKnown;
-      word.save(); // Hive'da değişikliği kaydet
+      word.save(); 
     });
   }
 
@@ -146,7 +142,6 @@ class _WordListPageState extends State<WordListPage> {
                           IconButton(
                             icon: const Icon(Icons.edit, color: Colors.blueAccent),
                             onPressed: () {
-                              // Düzenleme sayfasına git ve kelimeyi gönder
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
