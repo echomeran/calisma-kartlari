@@ -1,0 +1,37 @@
+name: ingilizce_calisma_kartlari
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  hive_generator: ^2.0.1
+  build_runner: ^2.5.4
+  flutter_launcher_icons: "^0.13.1"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/logo.jpg
+
+# Uygulama ikonunu yapılandırma
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.jpg"
+  # Android için adaptif ikon ayarları
+  # Bu ayarlar logonun daha büyük görünmesini ve istenilen renkte bir arka plana sahip olmasını sağlar
+  adaptive_icon_background: "#1A237E" # Uygulamanın koyu lacivert rengi
+  adaptive_icon_foreground: "assets/logo.jpg"
